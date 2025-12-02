@@ -29,7 +29,7 @@ class DialTest {
 
         int dialStart = 50;
         int dialRightMove = 30;
-        assertEquals(testDial.moveLeft(dialStart, dialRightMove), 80);
+        assertEquals(testDial.moveRight(dialStart, dialRightMove), 80);
     }
 
     @Test void RightAfterZero() {
@@ -37,6 +37,6 @@ class DialTest {
 
         int dialStart = 95;
         int dialRightMove = 60;
-        assertEquals(testDial.moveLeft(dialStart, dialRightMove), 55);
+        assertEquals(testDial.moveRight(dialStart, dialRightMove), 55);
     }
 }
