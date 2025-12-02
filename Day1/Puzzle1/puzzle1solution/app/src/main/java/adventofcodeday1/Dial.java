@@ -1,9 +1,12 @@
+package adventofcodeday1;
+
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Dial{
 
-    private Queue<String> history = new LinkedList<String>();
+    private Queue<String[]> history = new LinkedList<String[]>();
 
     public Dial(){
 
@@ -11,25 +14,48 @@ public class Dial{
 
     private int moveLeft(int startNumber, int moveNumber){
 
-        return 0;
+        int leftTurnSubtract = startNumber - moveNumber;
+
+        if(leftTurnSubtract < 0){
+
+            int leftTurnNumber = 0;
+            leftTurnNumber = 99 - leftTurnSubtract;
+            System.out.println("Left turn before 0: " + leftTurnNumber);
+            return leftTurnNumber;
+
+        } else {
+            System.out.println("Left turn does not go past 0: " + leftTurnSubtract);
+            return leftTurnSubtract;
+        }
     }
 
     private int moveRight(int startNumber, int moveNumber){
 
-        return 0;
+        return (startNumber + moveNumber) % 99;
 
     }
 
-    private void modifyHistory (String history){
+    private void modifyHistory (String newHistory, int result){
+
+        if(this.history.size() == 5){
+            this.history.remove();
+        }
+
+        String[] historyToAdd = {newHistory, Integer.toString(result)};
+
+        this.history.add(historyToAdd);
 
     }
 
-    private String getHistory(LinkedList<String> history){
-        return "";
-    }
+    private void printHistory(LinkedList<String> history){
 
-    private String getDial(){
-        return "";
+        Iterator<String> historyIterator = history.iterator();
+
+        while(historyIterator.hasNext()){
+
+            System.out.println(historyIterator.next());
+
+        }
     }
 
 }
