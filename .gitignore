@@ -4,4 +4,4 @@
 # Ignore Gradle build output directory
 build
 
-./app/bin/
+Day1/Puzzle1/puzzle1solution/app/bin/
