@@ -19,8 +19,11 @@ public class Dial{
         if(leftTurnSubtract < 0){
 
             int leftTurnNumber = 0;
-            leftTurnNumber = 99 - leftTurnSubtract;
-            System.out.println("Left turn before 0: " + leftTurnNumber);
+
+            leftTurnNumber = 100 + leftTurnSubtract;
+
+            System.out.println("Left turn goes before 0: " + leftTurnNumber);
+
             return leftTurnNumber;
 
         } else {
@@ -31,7 +34,9 @@ public class Dial{
 
     public int moveRight(int startNumber, int moveNumber){
 
-        return (startNumber + moveNumber) % 99;
+        //System.out.println((startNumber + moveNumber) % 99);
+
+        return (startNumber + moveNumber) % 100;
 
     }
 
