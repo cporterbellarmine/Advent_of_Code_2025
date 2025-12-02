@@ -21,11 +21,13 @@ public class Dial{
 
             int leftTurnNumber = 0;
 
-            leftTurnNumber = Math.abs((100 + leftTurnSubtract) % 100);
+            leftTurnNumber = Math.abs((leftTurnSubtract) % 100);
 
-            System.out.println("Left turn goes before 0: " + leftTurnNumber);
+            int leftTurnFinal = 100 - leftTurnNumber;
 
-            return leftTurnNumber;
+            System.out.println("Left turn goes before 0: " + leftTurnFinal);
+
+            return leftTurnFinal;
 
         } else {
             System.out.println("Left turn does not go past 0: " + leftTurnSubtract);
