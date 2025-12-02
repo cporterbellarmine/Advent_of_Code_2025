@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import adventofcodeday1.Dial;
 
-class AppTest {
+class DialTest {
     @Test void LeftNotBeforeZero() {
         Dial testDial = new Dial();
 
