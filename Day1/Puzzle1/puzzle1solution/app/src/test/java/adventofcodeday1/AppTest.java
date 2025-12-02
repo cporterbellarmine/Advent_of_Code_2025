@@ -5,10 +5,38 @@ package adventofcodeday1;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import adventofcodeday1.Dial;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test void LeftNotBeforeZero() {
+        Dial testDial = new Dial();
+
+        int dialStart = 50;
+        int dialLeftMove = 30;
+        assertEquals(testDial.moveLeft(dialStart, dialLeftMove), 20);
+    }
+
+    @Test void LeftBeforeZero() {
+        Dial testDial = new Dial();
+
+        int dialStart = 50;
+        int dialLeftMove = 68;
+        assertEquals(testDial.moveLeft(dialStart, dialLeftMove), 82);
+    }
+
+    @Test void RightNotAfterZero() {
+        Dial testDial = new Dial();
+
+        int dialStart = 50;
+        int dialRightMove = 30;
+        assertEquals(testDial.moveLeft(dialStart, dialRightMove), 80);
+    }
+
+    @Test void RightAfterZero() {
+        Dial testDial = new Dial();
+
+        int dialStart = 95;
+        int dialRightMove = 60;
+        assertEquals(testDial.moveLeft(dialStart, dialRightMove), 55);
     }
 }
