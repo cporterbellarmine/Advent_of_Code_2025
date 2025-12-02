@@ -39,4 +39,21 @@ class DialTest {
         int dialRightMove = 60;
         assertEquals(testDial.moveRight(dialStart, dialRightMove), 55);
     }
+
+    @Test void LeftMultipleTurns() {
+        Dial testDial = new Dial();
+
+        int dialStart = 50;
+        int dialLeftMove = 368;
+        assertEquals(testDial.moveLeft(dialStart, dialLeftMove), 82);
+    }
+
+    @Test void RightMultipleTurns() {
+        Dial testDial = new Dial();
+
+        int dialStart = 95;
+        int dialRightMove = 360;
+        assertEquals(testDial.moveRight(dialStart, dialRightMove), 55);
+    }
+
 }
