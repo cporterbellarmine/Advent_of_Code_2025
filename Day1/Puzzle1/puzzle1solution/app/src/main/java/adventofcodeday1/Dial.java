@@ -12,7 +12,7 @@ public class Dial{
 
     }
 
-    private int moveLeft(int startNumber, int moveNumber){
+    public int moveLeft(int startNumber, int moveNumber){
 
         int leftTurnSubtract = startNumber - moveNumber;
 
@@ -29,7 +29,7 @@ public class Dial{
         }
     }
 
-    private int moveRight(int startNumber, int moveNumber){
+    public int moveRight(int startNumber, int moveNumber){
 
         return (startNumber + moveNumber) % 99;
 
@@ -47,7 +47,7 @@ public class Dial{
 
     }
 
-    private void printHistory(LinkedList<String> history){
+    public void printHistory(LinkedList<String> history){
 
         Iterator<String> historyIterator = history.iterator();
 

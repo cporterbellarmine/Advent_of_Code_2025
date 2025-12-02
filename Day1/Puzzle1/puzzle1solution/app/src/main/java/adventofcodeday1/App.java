@@ -3,12 +3,87 @@
  */
 package adventofcodeday1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.lang.NumberFormatException;
+import adventofcodeday1.Dial;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
+    public static int getMoveAmount(String instruction){
+
+        String amountString = instruction.substring(1);
+
+        try{
+
+            int moveAmount = Integer.parseInt(amountString);
+            return moveAmount;
+
+        } catch (NumberFormatException e){
+            System.out.println(e);
+            return 0;
+        } 
+
+    }
+
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        Dial dial = new Dial();
+
+        int start = 50;
+
+        int zeroCount = 0;
+
+        try (Scanner fileScanner = new Scanner(new File("input.txt"))){
+
+            while(fileScanner.hasNextLine()){
+
+                String instruction = fileScanner.nextLine();
+
+                int moveAmount = getMoveAmount(instruction);
+                int end = 0;
+
+                if (instruction.startsWith("L")) {
+
+                    end = dial.moveLeft(start, moveAmount);
+
+                    if(start == 0){
+                        zeroCount += 1;
+                        System.out.println("Zero hit!");
+                    }
+
+                    System.out.printf("Start: %f, Instruction: %s, End: %f.\n", start, instruction, end);
+
+                    start = end;
+
+                } else if (instruction.startsWith("R")) {
+
+                    end = dial.moveRight(start, moveAmount);
+
+                    if(start == 0){
+                        zeroCount += 1;
+                        System.out.println("Zero hit!");
+                    }
+
+                    System.out.printf("Start: %f, Instruction: %s, End: %f.\n", start, instruction, end);
+
+                    start = end;
+
+                } else {
+
+                    continue;
+
+                }
+            }
+
+        } catch(FileNotFoundException exception){
+            System.out.println(exception);
+        }
+
+        System.out.println("Final zero count: " + zeroCount);
     }
 }
