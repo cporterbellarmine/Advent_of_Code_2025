@@ -3,6 +3,7 @@ package adventofcodeday1;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Iterator;
+import java.math.*;
 
 public class Dial{
 
@@ -20,7 +21,7 @@ public class Dial{
 
             int leftTurnNumber = 0;
 
-            leftTurnNumber = 100 + leftTurnSubtract;
+            leftTurnNumber = Math.abs((100 + leftTurnSubtract) % 100);
 
             System.out.println("Left turn goes before 0: " + leftTurnNumber);
 
