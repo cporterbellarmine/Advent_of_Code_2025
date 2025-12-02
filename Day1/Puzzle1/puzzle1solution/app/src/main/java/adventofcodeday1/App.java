@@ -38,7 +38,7 @@ public class App {
 
         int zeroCount = 0;
 
-        try (Scanner fileScanner = new Scanner(new File("input.txt"))){
+        try (Scanner fileScanner = new Scanner(new File("Advent_of_Code_2025/Day1/Puzzle1/puzzle1solution/app/src/main/java/adventofcodeday1/input.txt"))){
 
             while(fileScanner.hasNextLine()){
 
@@ -51,12 +51,12 @@ public class App {
 
                     end = dial.moveLeft(start, moveAmount);
 
-                    if(start == 0){
+                    if(end == 0){
                         zeroCount += 1;
                         System.out.println("Zero hit!");
                     }
 
-                    System.out.printf("Start: %f, Instruction: %s, End: %f.\n", start, instruction, end);
+                    System.out.printf("Start: %d, Instruction: %s, End: %d.\n", start, instruction, end);
 
                     start = end;
 
@@ -64,12 +64,12 @@ public class App {
 
                     end = dial.moveRight(start, moveAmount);
 
-                    if(start == 0){
+                    if(end == 0){
                         zeroCount += 1;
                         System.out.println("Zero hit!");
                     }
 
-                    System.out.printf("Start: %f, Instruction: %s, End: %f.\n", start, instruction, end);
+                    System.out.printf("Start: %d, Instruction: %s, End: %d.\n", start, instruction, end);
 
                     start = end;
 
