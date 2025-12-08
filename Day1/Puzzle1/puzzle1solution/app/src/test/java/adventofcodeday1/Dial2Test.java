@@ -5,7 +5,6 @@ package adventofcodeday1;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import adventofcodeday1.DialPuzzle2;
 
 class Dial2Test {
     @Test void testMultipleTurnsRight() {

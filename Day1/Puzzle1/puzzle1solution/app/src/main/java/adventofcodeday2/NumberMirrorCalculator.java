@@ -1,50 +1,51 @@
 package adventofcodeday2;
 
-public class numberMirrorCalculator {
+public class NumberMirrorCalculator {
 
     String range;
 
-    private numberMirrorCalculator(){
+    private NumberMirrorCalculator(){
 
     }
 
-    public numberMirrorCalculator(String range){
+    public NumberMirrorCalculator(String range){
 
         this.range = range;
 
     }
 
-    private int[] separateRange(){
+    public String[] separateRange(){
 
-        String[] numberRange = range.split("-");
+        return range.split("-");
 
-        int[] intNumberRange = new int[2];
-
-        for(int i = 0; i < numberRange.length; i++){
-            intNumberRange[i] = Integer.parseInt(numberRange[i]);
-        }
-
-        return intNumberRange;
     }
 
-    private int parseHalf(int id){
-
-        String idString = Integer.toString(id);
+    public String parseSecondHalfOfId(String idString){
 
         int idLength = idString.length();
 
-        int halfId = Integer.parseInt(idString.substring(0, idLength/2));
+        return idString.substring(idLength/2);
+    }
 
-        return halfId;
+
+    public String parseFirstHalfOfId(String idString){
+
+        int idLength = idString.length();
+
+        return idString.substring(0, idLength/2);
+    }
+
+    public boolean isMirroredId(String idString){
+
+        String firstHalf = parseFirstHalfOfId(idString);
+        String secondHalf = parseSecondHalfOfId(idString);
+
+        return firstHalf.equals(secondHalf);
     }
 
     public static void main(String[] args){
 
-        numberMirrorCalculator mirrorCalculator = new numberMirrorCalculator("123123-123124");
-
-        for(int range: mirrorCalculator.separateRange()){
-            System.out.println(range);
-        }
+        NumberMirrorCalculator mirrorCalculator = new NumberMirrorCalculator("123123-123124");
 
         
     }
