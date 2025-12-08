@@ -7,12 +7,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.lang.NumberFormatException;
-import adventofcodeday1.Dial;
+import adventofcodeday1.DialPuzzle1;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static int getMoveAmount(String instruction){
 
@@ -32,46 +29,46 @@ public class App {
 
     public static void main(String[] args) {
 
-        Dial dial = new Dial();
+        //DialPuzzle1 dial1 = new DialPuzzle1();
+        DialPuzzle2 dial2 = new DialPuzzle2();
 
         int start = 50;
 
         int zeroCount = 0;
 
-        try (Scanner fileScanner = new Scanner(new File("Advent_of_Code_2025/Day1/Puzzle1/puzzle1solution/app/src/main/java/adventofcodeday1/input.txt"))){
+        try (Scanner fileScanner = new Scanner(new File("Day1/Puzzle1/puzzle1solution/app/src/main/java/adventofcodeday1/input.txt"))){
 
             while(fileScanner.hasNextLine()){
 
                 String instruction = fileScanner.nextLine();
 
                 int moveAmount = getMoveAmount(instruction);
-                int end = 0;
+
+                System.out.println("Current pass 0 Amount:" + zeroCount);
+                //int end;
 
                 if (instruction.startsWith("L")) {
+                    
+                    // Dial 2 end is [passZero, endNumber]
+                    int[] end = dial2.moveLeft(start, moveAmount);
+                    zeroCount = zeroCount + end[0];
 
-                    end = dial.moveLeft(start, moveAmount);
 
-                    if(end == 0){
-                        zeroCount += 1;
-                        System.out.println("Zero hit!");
-                    }
+                    System.out.printf("Start: %d, Instruction: %s, End: %d, Pass: %d.\n", start, instruction, end[1], end[0]);
 
-                    System.out.printf("Start: %d, Instruction: %s, End: %d.\n", start, instruction, end);
-
-                    start = end;
+                    start = end[1];
 
                 } else if (instruction.startsWith("R")) {
 
-                    end = dial.moveRight(start, moveAmount);
+                    // Dial 2 end is [passZero, endNumber]
+                    
+                    int[] end = dial2.moveRight(start, moveAmount);
 
-                    if(end == 0){
-                        zeroCount += 1;
-                        System.out.println("Zero hit!");
-                    }
+                    zeroCount = zeroCount + end[0];
 
-                    System.out.printf("Start: %d, Instruction: %s, End: %d.\n", start, instruction, end);
+                    System.out.printf("Start: %d, Instruction: %s, End: %d, Pass: %d.\n", start, instruction, end[1], end[0]);
 
-                    start = end;
+                    start = end[1];
 
                 } else {
 

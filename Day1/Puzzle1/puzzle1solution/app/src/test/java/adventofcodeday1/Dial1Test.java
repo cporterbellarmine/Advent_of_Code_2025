@@ -5,11 +5,11 @@ package adventofcodeday1;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import adventofcodeday1.Dial;
+import adventofcodeday1.DialPuzzle1;
 
-class DialTest {
+class Dial1Test {
     @Test void LeftNotBeforeZero() {
-        Dial testDial = new Dial();
+        DialPuzzle1 testDial = new DialPuzzle1();
 
         int dialStart = 50;
         int dialLeftMove = 30;
@@ -17,7 +17,7 @@ class DialTest {
     }
 
     @Test void LeftBeforeZero() {
-        Dial testDial = new Dial();
+        DialPuzzle1 testDial = new DialPuzzle1();
 
         int dialStart = 50;
         int dialLeftMove = 68;
@@ -25,7 +25,7 @@ class DialTest {
     }
 
     @Test void RightNotAfterZero() {
-        Dial testDial = new Dial();
+        DialPuzzle1 testDial = new DialPuzzle1();
 
         int dialStart = 50;
         int dialRightMove = 30;
@@ -33,7 +33,7 @@ class DialTest {
     }
 
     @Test void RightAfterZero() {
-        Dial testDial = new Dial();
+        DialPuzzle1 testDial = new DialPuzzle1();
 
         int dialStart = 95;
         int dialRightMove = 60;
@@ -41,7 +41,7 @@ class DialTest {
     }
 
     @Test void LeftMultipleTurns() {
-        Dial testDial = new Dial();
+        DialPuzzle1 testDial = new DialPuzzle1();
 
         int dialStart = 50;
         int dialLeftMove = 368;
@@ -49,7 +49,7 @@ class DialTest {
     }
 
     @Test void RightMultipleTurns() {
-        Dial testDial = new Dial();
+        DialPuzzle1 testDial = new DialPuzzle1();
 
         int dialStart = 95;
         int dialRightMove = 360;
